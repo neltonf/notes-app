@@ -4,17 +4,23 @@ import { AuthModule } from './auth/auth.module';
 
 const routes: Routes = [
   {
-    path:'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    path: '',
+    redirectTo: 'auth',
+    pathMatch: 'full',
   },
   {
-    path:'notes',
-    loadChildren: () => import('./notes/notes.module').then(m => m.NotesModule)
-  }
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'notes',
+    loadChildren: () =>
+      import('./notes/notes.module').then((m) => m.NotesModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
