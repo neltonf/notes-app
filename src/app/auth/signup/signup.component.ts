@@ -8,10 +8,12 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
+  username: any;
+  password: any;
   constructor(private _auth: AuthService, private _router: Router) {}
 
   signUp = () => {
-    if (this._auth.signUp()) {
+    if (this._auth.signUp(this.username, this.password)) {
       this._router.navigate(['notes']);
     }
   };

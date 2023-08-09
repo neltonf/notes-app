@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   constructor() {}
 
-  signUp = (): boolean => {
-    return true;
+  signUp = (username: string, password: string): boolean => {
+    return username === 'admin' && password === 'admin';
   };
 }
